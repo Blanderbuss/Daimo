@@ -5,8 +5,13 @@
       <configuration>
         <fileset id="fileset" name="Beans" removed="false">
           <file>file://$MODULE_DIR$/src/main/java/Beans.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/Beans.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/aop.xml</file>
         </fileset>
       </configuration>
+    </facet>
+    <facet type="AspectJ" name="AspectJ">
+      <configuration />
     </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_5">
@@ -21,5 +26,8 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Spring-4.3.14.RELEASE" level="project" />
+    <orderEntry type="library" name="aspectj-1.9.0.RC2" level="project" />
+    <orderEntry type="library" name="Maven: org.aspectj:aspectjrt:1.6.11" level="project" />
+    <orderEntry type="library" name="Maven: org.aspectj:aspectjweaver:1.6.11" level="project" />
   </component>
 </module>

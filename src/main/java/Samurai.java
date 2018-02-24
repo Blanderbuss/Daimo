@@ -1,3 +1,4 @@
+import org.aspectj.lang.JoinPoint;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class Samurai {
@@ -32,5 +33,9 @@ public class Samurai {
 
     public void hello(){
         System.out.println("Samurai " + name + " killed you with " + weapon);
+    }
+
+    public void sepuku(){
+        System.out.println("Samurai " + name + " have cut through his stomach");
     }
 }

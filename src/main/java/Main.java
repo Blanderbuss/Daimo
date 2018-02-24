@@ -7,5 +7,6 @@ public class Main {
         ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
         Samurai hanzo = (Samurai)context.getBean("hanzo");
         hanzo.hello();
+        hanzo.sepuku();
     }
 }
