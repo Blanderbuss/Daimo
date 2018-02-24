@@ -1,3 +1,5 @@
+package japan;
+
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -17,7 +19,7 @@ public class Smith {
 
     public Smith(){}
 
-    @Pointcut("execution(* Samurai.hello(..))")
+    @Pointcut("execution(* japan.Samurai.hello(..))")
     public void hello(){}
 
     @Before("hello()")

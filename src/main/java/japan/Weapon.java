@@ -1,3 +1,5 @@
+package japan;
+
 public class Weapon {
     private String name;
 

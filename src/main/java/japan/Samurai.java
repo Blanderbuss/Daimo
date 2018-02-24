@@ -1,4 +1,5 @@
-import org.aspectj.lang.JoinPoint;
+package japan;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class Samurai {

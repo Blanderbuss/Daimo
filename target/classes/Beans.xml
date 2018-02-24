@@ -6,19 +6,19 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
 
-    <bean id="hanzo" class="Samurai">
+    <bean id="hanzo" class="japan.Samurai">
         <property name="name" value="Hanzo"/>
     </bean>
 
-    <bean id="katana" class="Weapon">
+    <bean id="katana" class="japan.Weapon">
         <property name="name" value="katana"/>
     </bean>
 
-    <bean id="danzo" class="Secundant">
+    <bean id="danzo" class="japan.Secundant">
         <property name="name" value="Danzo"/>
     </bean>
 
-    <bean id="smithy" class="Smith">
+    <bean id="smithy" class="japan.Smith">
         <property name="name" value="Ivan"/>
     </bean>
 
@@ -27,7 +27,7 @@
     <aop:config>
         <aop:aspect ref="danzo">
             <aop:after
-                    pointcut="execution(* Samurai.sepuku(..))"
+                    pointcut="execution(* japan.Samurai.sepuku(..))"
                     method="chopHead"/>
         </aop:aspect>
     </aop:config>
