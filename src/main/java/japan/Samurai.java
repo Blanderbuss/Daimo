@@ -27,7 +27,6 @@ public class Samurai {
         return weapon;
     }
 
-    @Autowired
     public void setWeapon(Weapon weapon) {
         this.weapon = weapon;
     }

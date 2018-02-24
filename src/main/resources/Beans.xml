@@ -6,12 +6,16 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
 
+    <context:annotation-config/>
+    <context:component-scan base-package="japan"/>
+    <aop:aspectj-autoproxy/>
     <bean id="hanzo" class="japan.Samurai">
         <property name="name" value="Hanzo"/>
+        <property name="weapon" ref="katana"/>
     </bean>
 
     <bean id="katana" class="japan.Weapon">
-        <property name="name" value="katana"/>
+        <property name="name" value="Katana"/>
     </bean>
 
     <bean id="danzo" class="japan.Secundant">
@@ -22,8 +26,6 @@
         <property name="name" value="Ivan"/>
     </bean>
 
-    <context:annotation-config/>
-    <aop:aspectj-autoproxy/>
     <aop:config>
         <aop:aspect ref="danzo">
             <aop:after
