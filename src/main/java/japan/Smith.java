@@ -19,10 +19,10 @@ public class Smith {
 
     public Smith(){}
 
-    @Pointcut("execution(* japan.Samurai.hello(..))")
-    public void hello(){}
+    /*@Pointcut("execution(* japan.Samurai.hello(..))")
+    public void hello(){}*/
 
-    @Before("hello()")
+    @Before("execution(* japan.Samurai.hello(..))")
     public void sharpenSword(){
         System.out.println("Smith have sharpened samurai`s sword");
     }
