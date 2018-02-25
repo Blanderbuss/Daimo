@@ -9,6 +9,7 @@
     <context:annotation-config/>
     <context:component-scan base-package="japan"/>
     <aop:aspectj-autoproxy/>
+
     <bean id="hanzo" class="japan.Samurai">
         <property name="name" value="Hanzo"/>
         <property name="weapon" ref="katana"/>
@@ -26,13 +27,13 @@
         <property name="name" value="Ivan"/>
     </bean>
 
-    <aop:config>
+    <!--<aop:config>
         <aop:aspect ref="danzo">
             <aop:after
                     pointcut="execution(* japan.Samurai.sepuku(..))"
                     method="chopHead"/>
         </aop:aspect>
-    </aop:config>
+    </aop:config>-->
 
 
 </beans>
