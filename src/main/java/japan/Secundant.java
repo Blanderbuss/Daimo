@@ -19,7 +19,7 @@ public class Secundant {
     }
 
     public void chopHead(){
-        System.out.println("japan.Secundant "+ getName() + " chopped samurai`s head off");
+        System.out.println("Secundant "+ getName() + " chopped samurai`s head off");
     }
 
 }
