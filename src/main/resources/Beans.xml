@@ -27,13 +27,13 @@
         <property name="name" value="Ivan"/>
     </bean>
 
-    <!--<aop:config>
+    <aop:config>
         <aop:aspect ref="danzo">
             <aop:after
                     pointcut="execution(* japan.Samurai.sepuku(..))"
                     method="chopHead"/>
         </aop:aspect>
-    </aop:config>-->
+    </aop:config>
 
 
 </beans>
