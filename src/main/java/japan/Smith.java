@@ -23,16 +23,8 @@ public class Smith {
     @Pointcut("execution(* japan.Samurai.hello(..))")
     public void hello(){}
 
-    @Pointcut("execution(* japan.Samurai.sepuku(..))")
-    public void sepuku() {}
-
     @Before("hello()")
     public void sharpenSword(){
-        System.out.println("BORSCH BREAKPOINT. before hello method");
-    }
-
-    @After("sepuku()")
-    public void afterSepuku() {
-        System.out.println("BORSCH BREAKPOINT. after sepuku method");
+        System.out.println("Smith have sharpened samurai`s sword");
     }
 }
