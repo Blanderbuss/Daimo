@@ -1,6 +1,6 @@
 package japan.data.dao;
 
-import japan.data.DbSamurai;
+import japan.data.entities.DbSamurai;
 
 public interface SamuraisDao {
     DbSamurai getSamuraiById(int id);

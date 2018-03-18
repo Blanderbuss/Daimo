@@ -61,11 +61,7 @@ public class DbWeapon {
 
     @Override
     public String toString() {
-        return "DbWeapon{" +
-                "idWeapon=" + idWeapon +
-                ", name='" + name + '\'' +
-                ", strength=" + strength +
-                ", creation_date=" + creation_date +
-                '}';
+        return "{Weapon " + name +
+                " with strength=" + strength + " }";
     }
 }

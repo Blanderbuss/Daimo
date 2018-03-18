@@ -1,5 +1,7 @@
 package japan;
 
+import javax.persistence.Entity;
+
 public class Weapon {
     private String name;
 

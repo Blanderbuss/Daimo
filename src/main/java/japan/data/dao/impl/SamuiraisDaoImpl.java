@@ -1,7 +1,8 @@
 package japan.data.dao.impl;
 
-import japan.data.DbSamurai;
+import japan.data.entities.DbSamurai;
 import japan.data.dao.SamuraisDao;
+import japan.data.entities.DbWeapon;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -28,7 +29,7 @@ public class SamuiraisDaoImpl implements SamuraisDao {
                         DbSamurai student = new DbSamurai();
                         student.setSamuraiId(rs.getInt(1));
                         student.setName(rs.getString(2));
-                        student.setWeapon(rs.getInt(3));
+                        student.setWeapon(rs.getObject(3, DbWeapon.class));
                         return student;
                     }
                 },id);
