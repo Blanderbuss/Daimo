@@ -13,4 +13,6 @@ public interface CeremoniesDao {
     void saveCeremony(Ceremony ceremony);
 
     List<Ceremony> getAllCeremonies();
+
+    List<Ceremony> getPopular();
 }

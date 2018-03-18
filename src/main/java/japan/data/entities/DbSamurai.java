@@ -16,14 +16,13 @@ public class DbSamurai {
     @ManyToMany(mappedBy = "visitors")
     private List<Ceremony> visiting;
     @OrderBy("name DESC")
-    @OneToOne (fetch = FetchType.EAGER)
+    @OneToOne (fetch = FetchType.LAZY)
     @JoinColumn(name = "weapon", nullable = false)
     private DbWeapon weapon;
 
     @Override
     public String toString() {
         return "{Samurai " + name +
-                " with " + weapon +
                 '}';
     }
 

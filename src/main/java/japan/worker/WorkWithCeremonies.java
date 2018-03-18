@@ -1,5 +1,6 @@
 package japan.worker;
 
+import com.googlecode.ehcache.annotations.Cacheable;
 import japan.data.entities.Ceremony;
 import japan.data.dao.CeremoniesDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,13 @@ public class WorkWithCeremonies {
         return ceremony;
     }
 
+    @Cacheable(cacheName="weaponsCache")
     public List<Ceremony> getAllCeremonies(){
         return ceremoniesDao.getAllCeremonies();
+    }
+
+    @Cacheable(cacheName="weaponsCache")
+    public List<Ceremony> getPopular(){
+        return ceremoniesDao.getPopular();
     }
 }

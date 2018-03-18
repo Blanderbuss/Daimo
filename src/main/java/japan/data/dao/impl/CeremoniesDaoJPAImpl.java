@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 import java.util.List;
 
 @Repository
@@ -35,6 +36,13 @@ public class CeremoniesDaoJPAImpl implements CeremoniesDao{
 
     @Override
     public List<Ceremony> getAllCeremonies() {
+        TypedQuery<Ceremony> query =
+                em.createNamedQuery("Ceremonies.findAll", Ceremony.class);
+        return (List<Ceremony>) query.getResultList();
+    }
+
+    @Override
+    public List<Ceremony> getPopular() {
         Query query = em.createQuery("SELECT e FROM Ceremony e");
         return (List<Ceremony>) query.getResultList();
     }

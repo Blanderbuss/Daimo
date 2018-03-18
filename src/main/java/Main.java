@@ -18,7 +18,7 @@ public class Main {
         hanzo.hello();
         hanzo.sepuku();*/
 
-        // THIS IS NEW
+        // THIS IS 6
 
         Ceremony ceremony = new Ceremony();
         ceremony.setName("Tea ceremony");
@@ -27,26 +27,35 @@ public class Main {
         WorkWithCeremonies workerCeremonies = (WorkWithCeremonies) context.getBean("workerCeremonies");
         //Uncomment to check
         //workerCeremonies.addCeremony(ceremony);
-        System.out.println("List of all ceremonies:");
+        System.out.println("-----------------List of all ceremonies(with visitors and their weapons)[Named query]:-----------------");
         for(Ceremony c:workerCeremonies.getAllCeremonies()){
-            System.out.println(c);
+            System.out.print(c + " who has ");
             System.out.println(c.getVisitors());
         };
 
-        //END OF NEW
+        //END OF 6
+
+        System.out.println("-----------------List of popular ceremonies[JPQL]:-----------------");
+        System.out.println(workerCeremonies.getPopular());
 
         WorkWithSamurais workerSamurai =
                 (WorkWithSamurais) context.getBean("workerSamurai");
-        new WorkWithSamurais();
         DbSamurai testSamurai = new DbSamurai("Vitaliy Wut");
         //Uncomment to check
-        //.saveSamuraiToDb(testSamurai);
+        //workerSamurai.saveSamuraiToDb(testSamurai);
+
         WorkWithWeapon workWithWeapon =
                 (WorkWithWeapon) context.getBean("weaponWorker");
         DbWeapon weapon = new DbWeapon();
-        weapon.setName("Dretsu");
-        weapon.setStrength(5);
-        weapon.setCreation_date(new Date(1,1,1));
+            weapon.setName("Dretsu");
+            weapon.setStrength(5);
+            weapon.setCreation_date(new Date(1,1,1));
+
+        //CHECKING CACHE
+        System.out.println("-----------------Cache check started-----------------");
+        System.out.println(workWithWeapon.getWeaponById(1));
+        System.out.println(workWithWeapon.getWeaponById(1));
+        System.out.println("-----------------Cache check finished-----------------");
         //Uncomment to check
         //weapon = workWithWeapon.addWeapon(weapon);
         weapon.setCreation_date(new Date(2,2,2));

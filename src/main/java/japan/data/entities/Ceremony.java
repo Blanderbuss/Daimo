@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@NamedQuery(name="Ceremonies.findAll", query="SELECT e FROM Ceremony e")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @Table(name="ceremonies")
 public class Ceremony {

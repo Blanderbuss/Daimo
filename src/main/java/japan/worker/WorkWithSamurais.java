@@ -4,9 +4,13 @@ import japan.data.entities.DbSamurai;
 import japan.data.dao.SamuraisDao;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.List;
+
 public class WorkWithSamurais {
     @Autowired
     SamuraisDao samuraisDao;
+
+
 
     public void saveSamuraiToDb(DbSamurai samurai){
         if ((samurai!=null)&&(samurai.getName()!=null)&&(!"".equals(samurai.getName()))){
