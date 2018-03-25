@@ -2,10 +2,13 @@ package japan.data.dao.impl;
 
 import japan.data.dao.WeaponDao;
 import japan.data.entities.DbWeapon;
+import japan.data.trans.EntityManagerFactory;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import javax.persistence.EntityManager;
 
 @Repository
 public class HibernateWeaponDao implements WeaponDao{
@@ -30,6 +33,17 @@ public class HibernateWeaponDao implements WeaponDao{
 
     @Override
     public void saveWeapon(DbWeapon weapon) {
-        currentSession().update(weapon);
+        final javax.persistence.EntityManagerFactory entityManagerFactory = EntityManagerFactory.getEntityManagerFactory();
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        try{
+            entityManager.getTransaction().begin();
+            DbWeapon createdEntity = entityManager.merge(weapon);
+            entityManager.getTransaction().commit();
+        } catch (Exception ex){
+            entityManager.getTransaction().rollback();
+        }finally {
+            entityManager.close();
+        }
+        //currentSession().update(weapon);
     }
 }

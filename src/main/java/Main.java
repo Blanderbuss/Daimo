@@ -41,10 +41,10 @@ public class Main {
         WorkWithSamurais workerSamurai =
                 (WorkWithSamurais) context.getBean("workerSamurai");
         System.out.println("-----------------Custom transaction checking-----------------");
-        System.out.println("-----------------Custom transaction checking-----------------");
         DbSamurai testSamurai = new DbSamurai("Maks");
         //Uncomment to check
         workerSamurai.saveSamuraiToDb(testSamurai);
+        System.out.println("-----------------Custom transaction checking-----------------");
 
         WorkWithWeapon workWithWeapon =
                 (WorkWithWeapon) context.getBean("weaponWorker");

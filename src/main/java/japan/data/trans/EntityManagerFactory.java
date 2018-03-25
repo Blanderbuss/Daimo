@@ -29,7 +29,7 @@ public class EntityManagerFactory {
         EntityManagerFactory.factory = factory;
     }
 
-    @Value("myUnit")
+    @Value("tUnit")
     public void setPersistentUnitName(String persistentUnitName){
         EntityManagerFactory.persistentUnitName = persistentUnitName;
     }
