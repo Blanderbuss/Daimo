@@ -3,11 +3,13 @@ package japan.data.dao.impl;
 import japan.data.entities.DbSamurai;
 import japan.data.dao.SamuraisDao;
 import japan.data.entities.DbWeapon;
+import japan.data.trans.EntityManagerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import javax.persistence.EntityManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -38,6 +40,17 @@ public class SamuiraisDaoImpl implements SamuraisDao {
 
     @Override
     public void addSamurai(DbSamurai samurai) {
-        jdbcTemplate.update(SQL_INSERT_SAMURAI, samurai.getName(), samurai.getWeapon());
+            final javax.persistence.EntityManagerFactory entityManagerFactory = EntityManagerFactory.getEntityManagerFactory();
+            EntityManager entityManager = entityManagerFactory.createEntityManager();
+            try{
+                entityManager.getTransaction().begin();
+                DbSamurai createdEntity = entityManager.merge(samurai);
+                entityManager.getTransaction().commit();
+            } catch (Exception ex){
+                entityManager.getTransaction().rollback();
+            }finally {
+                entityManager.close();
+            }
+
     }
 }

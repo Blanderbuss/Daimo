@@ -40,24 +40,29 @@ public class Main {
 
         WorkWithSamurais workerSamurai =
                 (WorkWithSamurais) context.getBean("workerSamurai");
-        DbSamurai testSamurai = new DbSamurai("Vitaliy Wut");
+        System.out.println("-----------------Custom transaction checking-----------------");
+        System.out.println("-----------------Custom transaction checking-----------------");
+        DbSamurai testSamurai = new DbSamurai("Maks");
         //Uncomment to check
-        //workerSamurai.saveSamuraiToDb(testSamurai);
+        workerSamurai.saveSamuraiToDb(testSamurai);
 
         WorkWithWeapon workWithWeapon =
                 (WorkWithWeapon) context.getBean("weaponWorker");
         DbWeapon weapon = new DbWeapon();
-            weapon.setName("Dretsu");
-            weapon.setStrength(5);
-            weapon.setCreation_date(new Date(1,1,1));
+            weapon.setName("Mace of doom");
+            weapon.setStrength(29);
+            weapon.setCreation_date(new Date(12,12,13));
+
+        //TRANSACTION
+        System.out.println("-----------------Transaction check started-----------------");
+        weapon = workWithWeapon.addWeapon(weapon);
+        System.out.println("-----------------Transaction check finished-----------------");
 
         //CHECKING CACHE
         System.out.println("-----------------Cache check started-----------------");
         System.out.println(workWithWeapon.getWeaponById(1));
         System.out.println(workWithWeapon.getWeaponById(1));
         System.out.println("-----------------Cache check finished-----------------");
-        //Uncomment to check
-        //weapon = workWithWeapon.addWeapon(weapon);
         weapon.setCreation_date(new Date(2,2,2));
         //Uncomment to check
         //workWithWeapon.saveWeapon(weapon);
